@@ -16,14 +16,14 @@ FBullCowGame::FBullCowGame()
 FString FBullCowGame::GetIsogramFromDictionary()
 {
 	std::vector <FString> Isograms;
-	std::ifstream in("Isograms.txt");
-	if (!in) 
+	std::ifstream In("Isograms.txt");
+	if (!In) 
 	{
 		std::cout << "Cannot open input file.\n";
 		return FString("isogram");
 	}
 	FString Line;
-	while (in>>Line)
+	while (In>>Line)
 	{
 		Isograms.push_back(Line);
 	}
