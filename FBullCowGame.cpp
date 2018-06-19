@@ -15,8 +15,6 @@ FBullCowGame::FBullCowGame()
 
 FString FBullCowGame::GetIsogramFromDictionary()
 {
-	int32 index;
-	FString s;
 	std::vector <FString> Isograms;
 	std::ifstream in("Isograms.txt");
 	if (!in) 
@@ -24,13 +22,14 @@ FString FBullCowGame::GetIsogramFromDictionary()
 		std::cout << "Cannot open input file.\n";
 		return FString("isogram");
 	}
-	while (in>>s)
+	FString Line;
+	while (in>>Line)
 	{
-		Isograms.push_back(s);
+		Isograms.push_back(Line);
 	}
 	srand(time(NULL));
-	index = rand() % Isograms.size();
-	return Isograms.at(index);
+	int32 Index = rand() % Isograms.size();
+	return Isograms[Index];
 }
 
 void FBullCowGame::Reset()
